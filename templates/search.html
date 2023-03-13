@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{url_for('static',path='/style.css')}}" rel="stylesheet">
+    <link href="https://unpkg.com/tabulator-tables@5.4.3/dist/css/tabulator_semanticui.min.css" rel="stylesheet">
+    <title>search</title>
+</head>
+<body>
+    <h1><a href="/">crawl</a> | search</h1>
+    <p><strong>seealso</strong></p>
+    <div id="seealso"></div>
+    <p><strong>section</strong></p>
+    <div id="section"></div>
+    <p><strong>xtools</strong></p>
+    <div id="xtools"></div>
+    <script type="text/javascript" src="https://unpkg.com/tabulator-tables/dist/js/tabulator.min.js"></script>
+    <script>
+        var seealso_rows = {{seealso_rows|tojson}};
+        var seealso_table = new Tabulator('#seealso',{
+            data:seealso_rows,
+            pagination:"local",
+            paginationSize:10,
+            columns:[
+                {title:"from", field:"from", headerFilter:"input"},
+                {title:"to", field:"to", headerFilter:"input"},
+            ],
+        });
+
+        var section_rows = {{section_rows|tojson}};
+        var section_table = new Tabulator('#section',{
+            data:section_rows,
+            pagination:"local",
+            paginationSize:10,
+            columns:[
+                {title:"title", field:"title", headerFilter:"input"},
+                {title:"section", field:"section", headerFilter:"input"},
+                {title:"contents", field:"contents", headerFilter:"input", width: "40px"},
+            ],
+        });
+
+        var xtools_rows = {{xtools_rows|tojson}};
+        var xtools_table = new Tabulator('#xtools',{
+            data:xtools_rows,
+            pagination:"local",
+            paginationSize:10,
+            columns:[
+                {title:"Title", field:"Title", headerFilter:"input"},
+                {title:"ID", field:"ID", headerFilter:"input"},
+                {title:"Wikidata ID", field:"Wikidata ID", headerFilter:"input"},
+                {title:"Page size", field:"Page size", headerFilter:"input"},
+                {title:"Total edits", field:"Total edits", headerFilter:"input"},
+                {title:"Editors", field:"Editors", headerFilter:"input"},
+                {title:"Pageviews", field:"Pageviews", headerFilter:"input"},
+                {title:"Minor edits", field:"Minor edits", headerFilter:"input"},
+                {title:"IP edits", field:"IP edits", headerFilter:"input"},
+                {title:"Bot edits", field:"Bot edits", headerFilter:"input"},
+                {title:"(Semi-)automated edits", field:"(Semi-)automated edits", headerFilter:"input"},
+                {title:"Reverted edits", field:"Reverted edits", headerFilter:"input"},
+                {title:"First edit", field:"First edit", headerFilter:"input"},
+                {title:"Latest edit", field:"Latest edit", headerFilter:"input"},
+                {title:"Max. text added", field:"Max. text added", headerFilter:"input"},
+                {title:"Max. text deleted", field:"Max. text deleted", headerFilter:"input"},
+                {title:"Average time between edits (days)", field:"Average time between edits (days)", headerFilter:"input"},
+                {title:"Average edits per user", field:"Average edits per user", headerFilter:"input"},
+                {title:"Average edits per day", field:"Average edits per day", headerFilter:"input"},
+                {title:"Average edits per month", field:"Average edits per month", headerFilter:"input"},
+                {title:"Average edits per year", field:"Average edits per year", headerFilter:"input"},
+                {title:"Edits made by the top 10% of editors", field:"Edits made by the top 10% of editors", headerFilter:"input"},
+                {title:"Links to this page", field:"Links to this page", headerFilter:"input"},
+                {title:"Redirects", field:"Redirects", headerFilter:"input"},
+                {title:"Characters", field:"Characters", headerFilter:"input"},
+                {title:"Words", field:"Words", headerFilter:"input"},
+                {title:"Sections", field:"Sections", headerFilter:"input"},
+                {title:"References", field:"References", headerFilter:"input"},
+                {title:"Unique references", field:"Unique references", headerFilter:"input"},
+                {title:"2001", field:"2001", headerFilter:"input"},
+                {title:"2002", field:"2002", headerFilter:"input"},
+                {title:"2003", field:"2003", headerFilter:"input"},
+                {title:"2004", field:"2004", headerFilter:"input"},
+                {title:"2005", field:"2005", headerFilter:"input"},
+                {title:"2006", field:"2006", headerFilter:"input"},
+                {title:"2007", field:"2007", headerFilter:"input"},
+                {title:"2008", field:"2008", headerFilter:"input"},
+                {title:"2009", field:"2009", headerFilter:"input"},
+                {title:"2010", field:"2010", headerFilter:"input"},
+                {title:"2011", field:"2011", headerFilter:"input"},
+                {title:"2012", field:"2012", headerFilter:"input"},
+                {title:"2013", field:"2013", headerFilter:"input"},
+                {title:"2014", field:"2014", headerFilter:"input"},
+                {title:"2015", field:"2015", headerFilter:"input"},
+                {title:"2016", field:"2016", headerFilter:"input"},
+                {title:"2017", field:"2017", headerFilter:"input"},
+                {title:"2018", field:"2018", headerFilter:"input"},
+                {title:"2019", field:"2019", headerFilter:"input"},
+                {title:"2020", field:"2020", headerFilter:"input"},
+                {title:"2021", field:"2021", headerFilter:"input"},
+                {title:"2022", field:"2022", headerFilter:"input"},
+                {title:"2023", field:"2023", headerFilter:"input"},
+            ],
+        });
+    </script>
+</body>
+</html>

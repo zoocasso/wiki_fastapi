@@ -1,0 +1,26 @@
+#process_div{
+    display: flex;
+}
+
+.step_div{
+    margin : 20px;
+    background-color: gray;
+    display: flex;
+    width: 50px;
+    height: 50px;
+    justify-content : center;
+    align-items : center;
+}
+
+.done{
+    background-color: green;
+}
+
+#crawl_div{
+    width: 300px;
+    height: 300px;
+    display:flex;
+    flex-direction: column;
+    justify-content : center;
+    align-items : center;
+}

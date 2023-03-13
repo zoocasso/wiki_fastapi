@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{url_for('static',path='/style.css')}}" rel="stylesheet">
+    <title>crawl</title>
+</head>
+<body>
+    <h1>crawl | <a href="/search">search</a></h1>
+    <div id ='crawl_div'>
+        <form id="input_form">
+            <input id="input" type="text" name="name">
+            <input id="submit" type="submit" value="crawl">
+        </form>
+        <div id="process_div">
+            <div id="step1" class="step_div">step1</div>
+            <div id="step2" class="step_div">step2</div>
+            <div id="step3" class="step_div">step3</div>
+        </div>
+    </div>
+    <script>
+        const input_form = document.querySelector("#input_form")
+        const input = document.querySelector("#input")
+
+        function step3_funcion(){
+            const step3_div = document.querySelector("#step3")
+            step3_div.classList.add('done')
+        }
+
+        function step2_function(){
+            const step2_div = document.querySelector("#step2")
+            step2_div.classList.add('done')
+        }
+
+        function step1_function(){
+            const step1_div = document.querySelector("#step1")
+            step1_div.classList.add('done')
+        }
+
+        function click_input_form(e){
+            e.preventDefault()
+            
+            fetch('/crawling_1',{
+                method:'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body:JSON.stringify({name:input.value}),
+            }).then((response) => response.json())
+            .then((data) => {
+                step1_function();
+                fetch('/crawling_2',{
+                method:'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body:JSON.stringify({name:data.toString()})
+            }).then((response) => response.json())
+            .then((data)=> {
+                step2_function();
+                fetch('/crawling_3',{
+                method:'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body:JSON.stringify({name:data.toString()})
+            }).then((response) => response.json())
+            .then(step3_funcion)})})
+        };
+        input_form.addEventListener("submit",click_input_form)
+    </script>
+</body>
+</html>
