@@ -8,7 +8,7 @@ import pandas as pd
 from tqdm import tqdm
 
 from sqlalchemy import create_engine
-db_connection_str = 'mysql+pymysql://root:vision9551@127.0.0.1/wikipedia_xtools'
+db_connection_str = f"mysql+pymysql://{config.DATABASE_CONFIG['user']}:{config.DATABASE_CONFIG['password']}@{config.DATABASE_CONFIG['host']}/{config.DATABASE_CONFIG['dbname']}"
 db_connection = create_engine(db_connection_str)
 conn = db_connection.connect()
 

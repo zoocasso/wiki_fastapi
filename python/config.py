@@ -1,5 +1,5 @@
 DATABASE_CONFIG = {
-    'host': '127.0.0.1',
+    'host': '139.150.82.178',
     'user': 'root',
     'password': 'vision9551',
     'dbname': 'wikipedia_xtools',

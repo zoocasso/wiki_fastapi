@@ -1,3 +1,5 @@
+import config
+
 # import itertools
 # import os
 import time
@@ -7,15 +9,16 @@ from bs4 import BeautifulSoup
 import re
 import pandas as pd
 from requests.adapters import HTTPAdapter
+from tqdm import tqdm
+
 import warnings
 warnings.filterwarnings(action='ignore')
-from tqdm import tqdm
-from sqlalchemy import create_engine
+
 import urllib3
 urllib3.disable_warnings()
 
-
-db_connection_str = 'mysql+pymysql://root:vision9551@127.0.0.1/wikipedia_xtools'
+from sqlalchemy import create_engine
+db_connection_str = f"mysql+pymysql://{config.DATABASE_CONFIG['user']}:{config.DATABASE_CONFIG['password']}@{config.DATABASE_CONFIG['host']}/{config.DATABASE_CONFIG['dbname']}"
 db_connection = create_engine(db_connection_str)
 conn = db_connection.connect()
 
