@@ -106,5 +106,6 @@ def wiki_info_crawl(input_title_list):
             xtools_dict = dict()
             xtools_dict["name"] = input_title
             xtools_list.append(xtools_dict)
-            # print(f"{input_title}__error!")
+            xtools_df = pd.DataFrame(xtools_list)
+            xtools_df.to_sql(name='xtools_tb',con=db_connection, if_exists='append', index=False)
     driver.close()

@@ -1,4 +1,5 @@
 import config
+
 import pymysql
 db_connection = pymysql.connect(host=config.DATABASE_CONFIG['host'],
                              user=config.DATABASE_CONFIG['user'],
